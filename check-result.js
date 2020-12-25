@@ -67,9 +67,7 @@ async function checkStatus() {
 	if(resultAvailable) {
 		console.log(resultText);
 	}
-	return resultAvailable;
+	return { Available: resultAvailable, Text: resultText };
 }
-
-checkStatus();
 
 exports.check = checkStatus;
