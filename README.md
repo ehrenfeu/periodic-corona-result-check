@@ -1,6 +1,8 @@
-# Corona-Ergebnis.de Checker
+# Corona-Ergebnis.de Periodic Checker
 
-Skript zur Test-Status Überprüfung von corona-ergebnis.de
+Skript zur periodischen Test-Status Überprüfung von corona-ergebnis.de
+
+Fork from [tkupek/corona-ergebnis-check](https://github.com/tkupek/corona-ergebnis-check)
 
 ---
 
@@ -9,22 +11,28 @@ Skript zur Test-Status Überprüfung von corona-ergebnis.de
 Die eigenen Testdaten zur Abfrage in `CONFIG.js` eintragen.
 
 
-Einfache Überprüfung auf der Konsole mit
+Starten der periodischen Überprüfung auf der Konsole mit
 
 ```
-node .\check-result.js
+node .\checkLoopMail.js
 > Covid test result available: FALSE
 ```
 
 ## Erweiterung
 
-Das Skript kann einfach um eine eigene Benachrichtigung erweitert werden.
+Es kann ein eigenes Skript mit einer eigenen Benachrichtigung verwendet werden:
 
 ```
-const checkResult = require('./check-result.js');
+const checkLoop = require('./checkLoop.js');
 
-let resultAvailable = checkResult.check();
-if(resultAvailable) {
-	// TODO, custom notification
+function customNotification(resultText)
+{
+	// Own Notification Code
+	console.log(resultText);
+}
+
+function checkLoopWithCustomNotification()
+{
+    return checkLoop.Start(customNotification);
 }
 ```
