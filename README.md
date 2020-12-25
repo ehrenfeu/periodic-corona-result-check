@@ -23,7 +23,7 @@ Das Skript kann einfach um eine eigene Benachrichtigung erweitert werden.
 ```
 const checkResult = require('./check-result.js');
 
-let resultAvailable = checkResult();
+let resultAvailable = checkResult.check();
 if(resultAvailable) {
 	// TODO, custom notification
 }
