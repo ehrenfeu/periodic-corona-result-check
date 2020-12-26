@@ -23,7 +23,7 @@ function getInputHash() {
 
 // get CSRF verification token
 async function getVerificationToken() {
-	let req = (await axios.get(homeUrl, {withCredentials: true}));
+	let req = await axios.get(homeUrl, {withCredentials: true});
 	let html = req.data;
 	let token = cheerio('[name=__RequestVerificationToken]', html);
 	let cookies = [];

@@ -6,24 +6,16 @@ function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function checkLoop(customNotification) {
-    return checkResult.check()
-        .then(result => {
-            if(result.Available)
-            {
-                if( result.Available && 
-                    customNotification != null && 
-                    customNotification instanceof Function) 
-                {
-                    customNotification(result.Text);
-                }
-            }
-            else
-            {
-                wait(config.loopIntervalMs)
-                    .then(val => checkLoop(customNotification));
-            }
-        });
+async function checkLoop(customNotification) {
+    let result = await checkResult.check();
+    if(result.Available) {
+        if( result.Available && customNotification != null && customNotification instanceof Function) {
+            customNotification(result.Text);
+        }
+    } else {
+        await wait(config.loopIntervalMs);
+        await checkLoop(customNotification);
+    }
 }
 
 exports.Start = checkLoop;
