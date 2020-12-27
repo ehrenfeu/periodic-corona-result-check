@@ -1,6 +1,6 @@
 # Corona-Ergebnis.de Periodic Checker
 
-Skript zur periodischen Test-Status Überprüfung von corona-ergebnis.de
+Skript zur periodischen Test-Status Überprüfung von [https://heidelberg.corona-ergebnis.de](https://heidelberg.corona-ergebnis.de)
 
 Fork from [tkupek/corona-ergebnis-check](https://github.com/tkupek/corona-ergebnis-check)
 
