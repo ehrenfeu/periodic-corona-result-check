@@ -23,7 +23,7 @@ function getInputHash() {
 
 // get CSRF verification token
 async function getVerificationToken() {
-	let req = await axios.get(homeUrl, {withCredentials: true});
+	let req = await axios.get(homeUrl, { withCredentials: true });
 	let html = req.data;
 	let token = cheerio('[name=__RequestVerificationToken]', html);
 	let cookies = [];
@@ -47,13 +47,13 @@ async function checkStatus() {
 		'__RequestVerificationToken': csrfToken.token
 	});
 	var config = {
-	  method: 'post',
-	  url: statusUrl,
-	  headers: { 
-	    'cookie': csrfToken.cookies.join('; '), 
-	    'Content-Type': 'application/x-www-form-urlencoded'
-	  },
-	  data : data
+		method: 'post',
+		url: statusUrl,
+		headers: {
+			'cookie': csrfToken.cookies.join('; '),
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		data: data
 	};
 
 	let result = await axios(config);
@@ -64,7 +64,7 @@ async function checkStatus() {
 	let resultAvailable = resultText.search("(ER03)") == -1;
 	console.log('Covid test result available: ' + resultAvailable.toString().toUpperCase())
 
-	if(resultAvailable) {
+	if (resultAvailable) {
 		console.log(resultText);
 	}
 	return { Available: resultAvailable, Text: resultText };
