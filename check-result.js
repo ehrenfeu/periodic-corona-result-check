@@ -26,14 +26,24 @@ function getInputHash() {
 // get CSRF verification token
 async function getVerificationToken() {
 	let req = await axios.get(homeUrl, { withCredentials: true });
-	let html = req.data;
-	let token = cheerio('[name=__RequestVerificationToken]', html);
+	const document = cheerio.load(req.data);
 	let cookies = [];
 	req.headers['set-cookie'].forEach(setcookie => {
 		cookies.push(setcookie.substring(0, setcookie.indexOf(';')));
 	});
+	// let token = document("input")[5].attribs.value;
+	let token = "";
+	document("input").each(function () {
+		// console.log(document(this).attr("name"));
+		if (document(this).attr("name") == "__RequestVerificationToken") {
+			token = document(this).attr("value");
+		}
+	})
+
+	// console.log("found token: " + token + "\n");
+
 	return {
-		token: token[0].attribs.value,
+		token: token,
 		cookies: cookies
 	};
 }
