@@ -1,7 +1,8 @@
-// YOUR TEST DATA
-exports.labId = '5f0a6176-d615-4d93-aa5d-863f481cb51f'; // Heidelberg
+// Copy the file to 'CONFIG.js' and fill in YOUR values below:
+exports.location = 'freiburg';  // XYZ.corona-ergebnis.de
+exports.labId = '9a94211d-7d77-4b7f-8e0f-0cbf23eea854'; // Freiburg
 exports.orderNumber = ''; // Auftragsnummer
-exports.birthdate = 'yyyy-mm-dd'; // Geburtsdatum yyyy-mm-dd
+exports.birthdate = ''; // Geburtsdatum yyyy-mm-dd
 exports.zipCode = ''; // Postleitzahl
 
 // Loop Config
