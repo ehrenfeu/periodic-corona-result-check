@@ -16,9 +16,11 @@ const zipCode = config.zipCode;
 // hash input data
 function getInputHash() {
 	let data = labId + orderNumber + birthdate + zipCode;
+	// console.log("raw hash data: [" + data + "]");
 	let hash = crypto.createHash('sha512');
-	let result = hash.update(data);
-	return result.digest('hex');
+	let result = hash.update(data).digest('hex');
+	// console.log("---\ninput hash: " + result + "\n---\n");
+	return result;
 }
 
 // get CSRF verification token
