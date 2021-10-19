@@ -54,6 +54,7 @@ async function checkStatus() {
 
 	// make post request
 	var data = qs.stringify({
+		'OrderNumber': orderNumber,
 		'labId': labId,
 		'Hash': input,
 		'__RequestVerificationToken': csrfToken.token
