@@ -72,8 +72,8 @@ async function checkStatus() {
 	let result = await axios(config);
 
 	// parse result
-	let html = result.data;
-	let resultText = cheerio('div[class=well]', html).text();
+	let html = cheerio.load(result.data);
+	let resultText = html("div[class=well]").text();
 	let resultAvailable = resultText.search("(ER03)") == -1;
 	console.log('Covid test result available: ' + resultAvailable.toString().toUpperCase())
 
