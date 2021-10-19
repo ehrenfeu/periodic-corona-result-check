@@ -5,8 +5,8 @@ const cheerio = require('cheerio');
 const config = require('./CONFIG.js');
 
 // form data
-const homeUrl = 'https://heidelberg.corona-ergebnis.de/';
-const statusUrl = 'https://heidelberg.corona-ergebnis.de/Home/Results';
+const homeUrl = 'https://' + config.location + '.corona-ergebnis.de/';
+const statusUrl = homeUrl + 'Home/Results';
 
 const labId = config.labId;
 const orderNumber = config.orderNumber;
