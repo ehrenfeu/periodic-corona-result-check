@@ -2,6 +2,13 @@ const checkLoop = require('./checkLoop.js');
 const nodemailer = require("nodemailer");
 const config = require('./CONFIG.js');
 
+
+function customNotification(resultText) {
+    // Own Notification Code
+    console.log(resultText);
+}
+
+
 async function mailResult(resultText) {
     // Mail Result
     console.log("Sending Mail");
