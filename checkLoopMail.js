@@ -2,8 +2,7 @@ const checkLoop = require('./checkLoop.js');
 const nodemailer = require("nodemailer");
 const config = require('./CONFIG.js');
 
-async function mailResult(resultText)
-{
+async function mailResult(resultText) {
     // Mail Result
     console.log("Sending Mail");
 
@@ -12,8 +11,8 @@ async function mailResult(resultText)
         port: config.mailPort,
         secure: config.mailSecure, // true for 465, false for other ports
         auth: {
-          user: config.mailUser,
-          pass: config.mailPass,
+            user: config.mailUser,
+            pass: config.mailPass,
         },
     });
 

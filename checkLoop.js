@@ -8,8 +8,8 @@ function wait(ms) {
 
 async function checkLoop(customNotification) {
     let result = await checkResult.check();
-    if(result.Available) {
-        if( result.Available && customNotification != null && customNotification instanceof Function) {
+    if (result.Available) {
+        if (result.Available && customNotification != null && customNotification instanceof Function) {
             customNotification(result.Text);
         }
     } else {
@@ -19,4 +19,3 @@ async function checkLoop(customNotification) {
 }
 
 exports.Start = checkLoop;
-
