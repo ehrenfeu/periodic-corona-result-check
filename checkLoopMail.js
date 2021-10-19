@@ -32,8 +32,12 @@ async function mailResult(resultText) {
     });
 }
 
-function checkLoopWithMail()
-{
+
+function checkLoopWithMail() {
+    if (config.mailTo == '') {
+        return checkLoop.Start(customNotification);
+    }
+
     return checkLoop.Start(mailResult);
 }
 
