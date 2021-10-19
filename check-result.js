@@ -74,7 +74,7 @@ async function checkStatus() {
 	// parse result
 	let html = cheerio.load(result.data);
 	let resultText = html("div[class=well]").text();
-	let resultAvailable = resultText.search("(ER03)") == -1;
+	let resultAvailable = resultText.search("Untersuchung") == -1;
 	console.log('Covid test result available: ' + resultAvailable.toString().toUpperCase())
 
 	if (resultAvailable) {
